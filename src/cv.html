@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peerapong Mala - Full Stack Developer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a;
+    line-height: 1.4;
+    background: #e0e0e0;
+  }
+
+  .page {
+    max-width: 794px;
+    min-height: 1123px;
+    margin: 0 auto;
+    background: #fff;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { max-width: 100%; min-height: auto; }
+    @page { margin: 0; size: A4; }
+  }
+
+  /* === LEFT SIDEBAR === */
+  .sidebar {
+    background: #2d3748;
+    color: #e2e8f0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .sidebar-photo {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .sidebar-content {
+    padding: 18px 20px 20px;
+  }
+
+  .sidebar-name {
+    display: none;
+  }
+
+  .sidebar-section {
+    margin-bottom: 16px;
+  }
+
+  .sidebar-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #90cdf4;
+    border-bottom: 1px solid #4a5568;
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+  }
+
+  .contact-item {
+    font-size: 12px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    color: #e2e8f0;
+    word-break: break-all;
+  }
+  .contact-item .icon {
+    flex-shrink: 0;
+    width: 14px;
+    text-align: center;
+    color: #90cdf4;
+    font-weight: 700;
+    font-size: 12px;
+  }
+  .contact-item a {
+    color: #e2e8f0;
+    text-decoration: none;
+  }
+
+  .skill-group {
+    margin-bottom: 8px;
+  }
+  .skill-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #90cdf4;
+    margin-bottom: 2px;
+  }
+  .skill-tags {
+    font-size: 11px;
+    color: #cbd5e0;
+    line-height: 1.45;
+  }
+
+  .edu-item {
+    margin-bottom: 6px;
+  }
+  .edu-school-name {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .edu-detail {
+    font-size: 11.5px;
+    color: #cbd5e0;
+  }
+
+  .lang-item {
+    font-size: 12px;
+    color: #cbd5e0;
+    margin-bottom: 2px;
+  }
+
+  /* === RIGHT MAIN === */
+  .main {
+    padding: 24px 28px 20px;
+  }
+
+  .main-header {
+    margin-bottom: 10px;
+    border-bottom: 2px solid #2d3748;
+    padding-bottom: 10px;
+  }
+  .main-header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #2d3748;
+    letter-spacing: 0.5px;
+  }
+  .main-header .role {
+    font-size: 16px;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 6px;
+  }
+  .main-header .summary {
+    font-size: 12px;
+    color: #4a5568;
+    line-height: 1.45;
+    font-style: italic;
+  }
+
+  .section {
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2d3748;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1.5px solid #e2e8f0;
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+  }
+
+  /* Experience */
+  .exp-company-header {
+    margin-bottom: 10px;
+  }
+  .exp-company {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2d3748;
+  }
+  .exp-phase {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 0 14px;
+    margin-bottom: 10px;
+  }
+  .exp-left {
+    text-align: left;
+  }
+  .exp-date {
+    font-size: 11.5px;
+    color: #718096;
+    font-weight: 600;
+  }
+  .exp-role {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-top: 1px;
+  }
+  .exp-right {
+  }
+  .exp-bullets {
+    list-style: none;
+    padding-left: 0;
+  }
+  .exp-bullets li {
+    font-size: 12px;
+    color: #2d2d2d;
+    padding-left: 12px;
+    position: relative;
+    margin-bottom: 3px;
+    line-height: 1.4;
+  }
+  .exp-bullets li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    color: #2d3748;
+    font-weight: 700;
+  }
+  .exp-bullets .exp-bullets {
+    padding-left: 6px;
+  }
+  .exp-bullets .exp-bullets li::before {
+    content: "\2013";
+    font-weight: 400;
+  }
+
+  /* Projects */
+  .proj-item {
+    margin-bottom: 6px;
+  }
+  .proj-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .proj-name {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #2d3748;
+  }
+  .proj-tech {
+    font-size: 10.5px;
+    color: #718096;
+  }
+  .proj-desc {
+    font-size: 11.5px;
+    color: #2d2d2d;
+    line-height: 1.4;
+  }
+
+  /* Hackathons */
+  .hack-item {
+    margin-bottom: 5px;
+  }
+  .hack-name {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #2d3748;
+  }
+  .hack-sub {
+    font-size: 11.5px;
+    color: #4a5568;
+    font-style: italic;
+  }
+  .hack-desc {
+    font-size: 11.5px;
+    color: #2d2d2d;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- LEFT SIDEBAR -->
+  <div class="sidebar">
+    <img class="sidebar-photo" src="./profile.jpg" alt="Peerapong Mala">
+
+    <div class="sidebar-content">
+
+      <!-- Contact -->
+      <div class="sidebar-section">
+        <div class="sidebar-title">Contact</div>
+        <div class="contact-item"><span class="icon">&#9742;</span> 093-693-5925</div>
+        <div class="contact-item"><span class="icon">&#9993;</span> <a href="mailto:Peetae012@gmail.com">Peetae012@gmail.com</a></div>
+        <div class="contact-item"><span class="icon">&#9873;</span> Chiang Mai, Thailand</div>
+        <div class="contact-item"><span class="icon">&#128279;</span> <a href="https://github.com/PeerapongMala">github.com/PeerapongMala</a></div>
+        <div class="contact-item"><span class="icon">&#127760;</span> <a href="https://portfolio-peerapong.vercel.app">Portfolio</a></div>
+      </div>
+
+      <!-- Skills -->
+      <div class="sidebar-section">
+        <div class="sidebar-title">Technical Skills</div>
+
+        <div class="skill-group">
+          <div class="skill-label">Frontend</div>
+          <div class="skill-tags">React, TypeScript, JavaScript, Vue 3, Nuxt 4, Next.js, Tailwind CSS, Vite</div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Backend</div>
+          <div class="skill-tags">Go (Fiber, Chi), NestJS, Spring Boot (Java), Prisma</div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Database</div>
+          <div class="skill-tags">PostgreSQL, pgvector, MySQL, Firebase/Firestore</div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">AI</div>
+          <div class="skill-tags">Google Gemini (tool-calling, prompt engineering), Claude, ChatGPT, Ollama, OpenClaw, OpenRouter</div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">DevOps &amp; Cloud</div>
+          <div class="skill-tags">Docker, GitHub Actions, Google Cloud (Speech, TTS, Translate), Render, Git, GitLab</div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Tools</div>
+          <div class="skill-tags">Postman, Swagger, Playwright, LINE LIFF</div>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="sidebar-section">
+        <div class="sidebar-title">Education</div>
+        <div class="edu-item">
+          <div class="edu-school-name">Chiang Mai University</div>
+          <div class="edu-detail">Digital Industry Integration</div>
+          <div class="edu-detail">2023 &ndash; 2026</div>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="sidebar-section">
+        <div class="sidebar-title">Languages</div>
+        <div class="lang-item">Thai (Native)</div>
+        <div class="lang-item">English (Working)</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT MAIN CONTENT -->
+  <div class="main">
+
+    <!-- Header -->
+    <div class="main-header">
+      <h1>Peerapong Mala</h1>
+      <div class="role">Full Stack Developer</div>
+      <div class="summary">
+        Full Stack Developer with 14-month internship at Zettamerge, progressing from UX/UI design and QA to owning full-stack features in Go. Built production APIs, AI chatbot integrations (Gemini), and client-facing prototypes. Debugged 3 browser-based games. Active personal project builder seeking a full-time role.
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+      <div class="section-title">Experience</div>
+
+      <div class="exp-company-header">
+        <span class="exp-company">Zettamerge &mdash; Chiang Mai (Internship)</span>
+        <span class="exp-date" style="margin-left:8px;">Dec 2024 &ndash; Mar 2026 (14 months, excl. summer break)</span>
+      </div>
+
+      <!-- Phase 1: Dec 2024-Mar 2025 -->
+      <div class="exp-phase">
+        <div class="exp-left">
+          <div class="exp-date">Dec 2024 &ndash; Mar 2025</div>
+          <div class="exp-role">Front-End / QA</div>
+        </div>
+        <div class="exp-right">
+          <ul class="exp-bullets">
+            <li><strong>CSS Fixes</strong> &mdash; TSR Newspaper layout, Insurance header/dropdown components</li>
+            <li><strong>Clever Platform QA</strong> &mdash; reported 40&ndash;50 bugs from ~600 total via structured Excel tracking</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Phase 2: Jun 2025 - Mar 2026 -->
+      <div class="exp-phase">
+        <div class="exp-left">
+          <div class="exp-date">Jun 2025 &ndash; Mar 2026</div>
+          <div class="exp-role">Full-Stack Developer</div>
+        </div>
+        <div class="exp-right">
+          <ul class="exp-bullets">
+            <li><strong>Dental Plus</strong> &mdash; built interactive prototype in 4 days for client UX/UI presentation, approved to proceed. End-to-end ownership: Figma, API specs, mock frontend, backend (Auth, Game phases), AI POC (Go + Chi, PostgreSQL + pgvector, Gemini AI with tool-calling)</li>
+            <li><strong>3D Games QA &amp; Debug</strong> &mdash; took over bug fixes from senior team members, freeing them for other tasks. Debugged React logic in 3 browser games (Fruit Ninja, Last War, Survival IO): pause/resume, timer sync, projectile despawn, UI state fixes</li>
+            <li><strong>BSS (Banknote Sorting System)</strong> for Ditruz &mdash; delivered 6 pages + 3 modals with backend APIs in 8 days using AI-assisted development. 44/44 QA tests passed (100%)</li>
+            <li><strong>Chat Management POC</strong> &mdash; self-initiated: researched references, built proposal slides, and presented to team in 4 days. Approved to build POC, delivered working multi-channel inbox (LINE/FB/IG/TikTok) with Gemini 2.5 Flash AI in 2 days</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Personal Projects -->
+    <div class="section">
+      <div class="section-title">Personal Projects</div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <span class="proj-name">BubbleShop</span>
+          <span class="proj-tech">JavaScript &bull; Firebase &bull; Firestore &bull; reCAPTCHA v3</span>
+        </div>
+        <div class="proj-desc">E-commerce for in-game items: real-time order board, multi-admin roles, stock tracking, coupons, commission tiers. 100+ commits. <em>Self-coded Mar 2026; AI-assisted Apr 2026.</em></div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <span class="proj-name">FearFree Animals</span>
+          <span class="proj-tech">Go &bull; React &bull; TypeScript &bull; Playwright</span>
+        </div>
+        <div class="proj-desc">Full-stack: Go backend (auth, game logic, rewards, assessment) + React FE. Deployed on Render. <em>Self-coded; E2E AI-assisted.</em></div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <span class="proj-name">TrustMate</span>
+          <span class="proj-tech">NestJS &bull; Prisma &bull; React &bull; Google OAuth</span>
+        </div>
+        <div class="proj-desc">Mental health platform: AI chatbot, mood tracking, therapist booking, crisis detection. 131 unit + 18 integration tests (80% coverage). <em>AI-assisted Apr 2026.</em></div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <span class="proj-name">JORY Quiz Web</span>
+          <span class="proj-tech">Next.js &bull; TypeScript &bull; Web Share API</span>
+        </div>
+        <div class="proj-desc">Quiz app with result image generation and Instagram story sharing. Self-coded Mar 2026.</div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <span class="proj-name">AI Factory / CONNEXT Portal / Portfolio</span>
+          <span class="proj-tech">TypeScript &bull; GitHub Actions &bull; Nuxt 4 &bull; Vue 3 &bull; React &bull; Tailwind</span>
+        </div>
+        <div class="proj-desc">Auto content posting with CI/CD. Client portal (Nuxt 4). Personal portfolio (React). Feb&ndash;Apr 2026.</div>
+      </div>
+    </div>
+
+    <!-- Hackathons -->
+    <div class="section">
+      <div class="section-title">Hackathons &amp; Awards</div>
+
+      <div class="hack-item">
+        <div class="hack-name">ICP Spring Ideathon 2024 &mdash; 4th Place</div>
+        <div class="hack-desc">International Web3 blockchain hackathon by ICP Hubs Network &bull; Mar 2024</div>
+      </div>
+
+      <div class="hack-item">
+        <div class="hack-name">K-CAMT Hackathon Winter Program 2023</div>
+        <div class="hack-desc">24-hour smart farming hackathon with Korean institutions &bull; Dec 2023</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

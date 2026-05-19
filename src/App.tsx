@@ -15,11 +15,16 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import profileImg from "./profile.jpg";
+import imgFearfree from "./project-fearfree.jpg";
+import imgTrustmate from "./project-trustmate.jpg";
+import imgBubbleshop from "./project-bubbleshop.jpg";
+import imgJoryquiz from "./project-joryquiz.jpg";
 
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
+  { label: "CV", href: "/cv" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -169,6 +174,12 @@ function Hero() {
               />
             </a>
             <a
+              href="/cv"
+              className="inline-flex items-center gap-2 px-8 py-3 border border-slate-600 text-slate-300 font-semibold rounded-lg hover:border-cyan-500/50 hover:text-white transition-all"
+            >
+              View CV
+            </a>
+            <a
               href="#contact"
               className="inline-flex items-center gap-2 px-8 py-3 border border-slate-600 text-slate-300 font-semibold rounded-lg hover:border-cyan-500/50 hover:text-white transition-all"
             >
@@ -259,6 +270,53 @@ function ServicesSection() {
   );
 }
 
+const projects = [
+  {
+    name: "FearFree Animals",
+    description:
+      "Full-stack: Go backend (auth, game logic, rewards, assessment) + React FE. Deployed on Render & Vercel.",
+    tags: ["Go", "React", "TypeScript", "PostgreSQL", "Playwright"],
+    url: "https://fearfree-frontend.vercel.app",
+    github: "https://github.com/PeerapongMala/fearfree-frontend",
+    accent: "from-emerald-500 to-teal-500",
+    border: "hover:border-emerald-500/50",
+    image: imgFearfree,
+  },
+  {
+    name: "TrustMate",
+    description:
+      "Mental health platform: AI chatbot, mood tracking, therapist booking, crisis detection. 131 unit + 18 integration tests.",
+    tags: ["NestJS", "Prisma", "React", "Google OAuth"],
+    url: "https://trustmate-th.vercel.app",
+    github: "https://github.com/PeerapongMala/2026-04-trustmate-frontend",
+    accent: "from-violet-500 to-purple-500",
+    border: "hover:border-violet-500/50",
+    image: imgTrustmate,
+  },
+  {
+    name: "BubbleShop",
+    description:
+      "E-commerce for in-game items: real-time order board, multi-admin roles, stock tracking, coupons, commission tiers.",
+    tags: ["JavaScript", "Firebase", "Firestore", "reCAPTCHA v3"],
+    url: "https://talesrunner-bubbleshop.web.app",
+    github: "https://github.com/PeerapongMala/Bubbleshop",
+    accent: "from-rose-500 to-orange-500",
+    border: "hover:border-rose-500/50",
+    image: imgBubbleshop,
+  },
+  {
+    name: "JORY Quiz Web",
+    description:
+      "Quiz app with result image generation and Instagram story sharing via Web Share API.",
+    tags: ["Next.js", "TypeScript", "Web Share API"],
+    url: "https://jory-quiz-web.vercel.app",
+    github: "https://github.com/PeerapongMala/JORY-quiz-web",
+    accent: "from-cyan-500 to-blue-500",
+    border: "hover:border-cyan-500/50",
+    image: imgJoryquiz,
+  },
+];
+
 function ProjectSection() {
   return (
     <section id="projects" className="py-24 border-t border-slate-800/50">
@@ -272,35 +330,59 @@ function ProjectSection() {
           </h2>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <div className="group p-8 md:p-10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl hover:border-cyan-500/30 transition-all">
-            <div className="flex items-center gap-3 mb-4">
-              <Globe size={20} className="text-cyan-400" />
-              <span className="text-xs font-medium tracking-widest uppercase text-cyan-400">
-                Featured Project
-              </span>
-            </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Fearfree Animal
-            </h3>
-            <p className="text-slate-400 leading-relaxed mb-6">
-              A complete refactoring of a web application. Migrated backend from
-              Java Spring Boot to Golang and database from Firebase to
-              PostgreSQL for better performance.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {["Golang", "PostgreSQL", "React", "Spring Boot", "Firebase"].map(
-                (tag) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((project) => (
+            <div
+              key={project.name}
+              className={`group bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl ${project.border} transition-all hover:bg-slate-800/50 overflow-hidden`}
+            >
+              <a href={project.url} target="_blank" rel="noopener noreferrer" className="block">
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="w-full h-44 object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                />
+              </a>
+              <div className="p-7">
+              <h3 className="text-xl font-bold text-white mb-2">
+                {project.name}
+              </h3>
+              <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2 mb-5">
+                {project.tags.map((tag) => (
                   <span
                     key={tag}
                     className="text-xs px-3 py-1 bg-slate-700/50 text-slate-300 rounded-full"
                   >
                     {tag}
                   </span>
-                ),
-              )}
+                ))}
+              </div>
+              <div className="flex items-center gap-4">
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+                >
+                  <Globe size={14} />
+                  Live Demo
+                </a>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 hover:text-white transition-colors"
+                >
+                  <Github size={14} />
+                  Code
+                </a>
+              </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

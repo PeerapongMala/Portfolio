@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bun add:*)",
+      "Bash(git init:*)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(bun x tsc:*)",
+      "Bash(bun run dev)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(cmd //c \"rename D:\\\\peerapong\\\\P\\\\Porforil Portfolio\")",
+      "Bash(gh auth:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}
