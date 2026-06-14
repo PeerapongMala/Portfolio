@@ -21,215 +21,140 @@
     min-height: 1123px;
     margin: 0 auto;
     background: #fff;
-    display: grid;
-    grid-template-columns: 240px 1fr;
+    padding: 28px 38px 20px;
   }
 
   @media print {
     body { background: #fff; }
-    .page { max-width: 100%; min-height: auto; }
+    .page { max-width: 100%; min-height: auto; padding: 16px 34px 10px; }
     @page { margin: 0; size: A4; }
   }
 
-  /* === LEFT SIDEBAR === */
-  .sidebar {
-    background: #2d3748;
-    color: #e2e8f0;
-    padding: 0;
-    overflow: hidden;
+  /* === HEADER === */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
   }
 
-  .sidebar-photo {
-    width: 100%;
-    height: 220px;
+  .header-left {
+    flex: 1;
+  }
+
+  .header-left h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+  }
+
+  .header-left .subtitle {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 1px;
+  }
+
+  .header-left .contact-line {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 2px;
+  }
+  .header-left .contact-line a {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+
+  .header-photo {
+    width: 100px;
+    height: 120px;
     object-fit: cover;
     object-position: center top;
-    display: block;
-  }
-
-  .sidebar-content {
-    padding: 18px 20px 20px;
-  }
-
-  .sidebar-name {
-    display: none;
-  }
-
-  .sidebar-section {
-    margin-bottom: 16px;
-  }
-
-  .sidebar-title {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #90cdf4;
-    border-bottom: 1px solid #4a5568;
-    padding-bottom: 3px;
-    margin-bottom: 8px;
-  }
-
-  .contact-item {
-    font-size: 12px;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    color: #e2e8f0;
-    word-break: break-all;
-  }
-  .contact-item .icon {
+    border: 1px solid #ddd;
+    margin-left: 20px;
     flex-shrink: 0;
-    width: 14px;
-    text-align: center;
-    color: #90cdf4;
-    font-weight: 700;
-    font-size: 12px;
-  }
-  .contact-item a {
-    color: #e2e8f0;
-    text-decoration: none;
   }
 
-  .skill-group {
-    margin-bottom: 8px;
-  }
-  .skill-label {
-    font-size: 11.5px;
-    font-weight: 600;
-    color: #90cdf4;
-    margin-bottom: 2px;
-  }
-  .skill-tags {
-    font-size: 11px;
-    color: #cbd5e0;
-    line-height: 1.45;
-  }
-
-  .edu-item {
-    margin-bottom: 6px;
-  }
-  .edu-school-name {
-    font-size: 12.5px;
-    font-weight: 600;
-    color: #fff;
-  }
-  .edu-detail {
-    font-size: 11.5px;
-    color: #cbd5e0;
-  }
-
-  .lang-item {
-    font-size: 12px;
-    color: #cbd5e0;
-    margin-bottom: 2px;
-  }
-
-  /* === RIGHT MAIN === */
-  .main {
-    padding: 24px 28px 20px;
-  }
-
-  .main-header {
-    margin-bottom: 10px;
-    border-bottom: 2px solid #2d3748;
-    padding-bottom: 10px;
-  }
-  .main-header h1 {
-    font-size: 28px;
-    font-weight: 800;
-    color: #2d3748;
-    letter-spacing: 0.5px;
-  }
-  .main-header .role {
-    font-size: 16px;
-    font-weight: 600;
-    color: #4a5568;
-    margin-bottom: 6px;
-  }
-  .main-header .summary {
-    font-size: 12px;
-    color: #4a5568;
-    line-height: 1.45;
-    font-style: italic;
-  }
-
+  /* === SECTIONS === */
   .section {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
+
   .section-title {
     font-size: 14px;
     font-weight: 700;
-    color: #2d3748;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 1.5px solid #e2e8f0;
+    color: #1a1a1a;
+    border-bottom: 1.5px solid #1a1a1a;
     padding-bottom: 3px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+  }
+
+  .summary-text {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.4;
   }
 
   /* Experience */
-  .exp-company-header {
-    margin-bottom: 10px;
+  .exp-block {
+    margin-bottom: 5px;
+  }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
   }
   .exp-company {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
-    color: #2d3748;
-  }
-  .exp-phase {
-    display: grid;
-    grid-template-columns: 130px 1fr;
-    gap: 0 14px;
-    margin-bottom: 10px;
-  }
-  .exp-left {
-    text-align: left;
+    color: #1a1a1a;
   }
   .exp-date {
-    font-size: 11.5px;
-    color: #718096;
-    font-weight: 600;
+    font-size: 12px;
+    color: #555;
+    flex-shrink: 0;
   }
   .exp-role {
     font-size: 12.5px;
-    font-weight: 700;
-    color: #2d3748;
-    margin-top: 1px;
-  }
-  .exp-right {
+    font-style: italic;
+    color: #444;
+    margin-bottom: 3px;
   }
   .exp-bullets {
-    list-style: none;
-    padding-left: 0;
+    list-style: disc;
+    padding-left: 16px;
+    font-size: 11.5px;
+    color: #2d2d2d;
+    line-height: 1.35;
   }
   .exp-bullets li {
-    font-size: 12px;
-    color: #2d2d2d;
-    padding-left: 12px;
-    position: relative;
-    margin-bottom: 3px;
-    line-height: 1.4;
+    margin-bottom: 1px;
   }
-  .exp-bullets li::before {
-    content: "\2022";
-    position: absolute;
-    left: 0;
-    color: #2d3748;
+
+  /* Education */
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .edu-school {
+    font-size: 13px;
     font-weight: 700;
+    color: #1a1a1a;
   }
-  .exp-bullets .exp-bullets {
-    padding-left: 6px;
+  .edu-date {
+    font-size: 12px;
+    color: #555;
   }
-  .exp-bullets .exp-bullets li::before {
-    content: "\2013";
-    font-weight: 400;
+  .edu-detail {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #444;
   }
 
   /* Projects */
   .proj-item {
-    margin-bottom: 6px;
+    margin-bottom: 3px;
   }
   .proj-header {
     display: flex;
@@ -238,228 +163,205 @@
     flex-wrap: wrap;
   }
   .proj-name {
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 700;
-    color: #2d3748;
+    color: #1a1a1a;
   }
   .proj-tech {
-    font-size: 10.5px;
-    color: #718096;
+    font-size: 11px;
+    font-style: italic;
+    color: #555;
   }
-  .proj-desc {
+  .proj-bullets {
+    list-style: disc;
+    padding-left: 16px;
     font-size: 11.5px;
     color: #2d2d2d;
-    line-height: 1.4;
+    line-height: 1.35;
+  }
+  .proj-bullets li {
+    margin-bottom: 0;
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 20px;
+    font-size: 11.5px;
+    color: #2d2d2d;
+  }
+  .skills-grid .skill-row {
+    line-height: 1.45;
+  }
+  .skill-row strong {
+    color: #1a1a1a;
   }
 
   /* Hackathons */
   .hack-item {
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+    font-size: 12px;
+    color: #2d2d2d;
   }
   .hack-name {
-    font-size: 12.5px;
     font-weight: 700;
-    color: #2d3748;
-  }
-  .hack-sub {
-    font-size: 11.5px;
-    color: #4a5568;
-    font-style: italic;
-  }
-  .hack-desc {
-    font-size: 11.5px;
-    color: #2d2d2d;
+    color: #1a1a1a;
   }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- LEFT SIDEBAR -->
-  <div class="sidebar">
-    <img class="sidebar-photo" src="./profile.jpg" alt="Peerapong Mala">
-
-    <div class="sidebar-content">
-
-      <!-- Contact -->
-      <div class="sidebar-section">
-        <div class="sidebar-title">Contact</div>
-        <div class="contact-item"><span class="icon">&#9742;</span> 093-693-5925</div>
-        <div class="contact-item"><span class="icon">&#9993;</span> <a href="mailto:Peetae012@gmail.com">Peetae012@gmail.com</a></div>
-        <div class="contact-item"><span class="icon">&#9873;</span> Chiang Mai, Thailand</div>
-        <div class="contact-item"><span class="icon">&#128279;</span> <a href="https://github.com/PeerapongMala">github.com/PeerapongMala</a></div>
-        <div class="contact-item"><span class="icon">&#127760;</span> <a href="https://portfolio-peerapong.vercel.app">Portfolio</a></div>
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <h1>Peerapong Mala</h1>
+      <div class="subtitle" style="margin-bottom:4px;">Chiang Mai University, College of Arts, Media and Technology (CAMT)</div>
+      <div class="contact-line">
+        <a href="mailto:Peetae012@gmail.com">Peetae012@gmail.com</a> &nbsp;|&nbsp;
+        093-693-5925 &nbsp;|&nbsp;
+        Chiang Mai, Thailand
       </div>
-
-      <!-- Skills -->
-      <div class="sidebar-section">
-        <div class="sidebar-title">Technical Skills</div>
-
-        <div class="skill-group">
-          <div class="skill-label">Frontend</div>
-          <div class="skill-tags">React, TypeScript, JavaScript, Vue 3, Nuxt 4, Next.js, Tailwind CSS, Vite</div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-label">Backend</div>
-          <div class="skill-tags">Node.js, Go (Fiber, Chi), NestJS, Spring Boot (Java), Prisma</div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-label">Database</div>
-          <div class="skill-tags">PostgreSQL, pgvector, MySQL, Firebase/Firestore</div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-label">AI</div>
-          <div class="skill-tags">Google Gemini (tool-calling, prompt engineering), Claude, ChatGPT, Ollama, OpenClaw, Hermes, OpenRouter, Antigravity; AI agent workflows</div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-label">DevOps &amp; Cloud</div>
-          <div class="skill-tags">Docker, GitHub Actions, Google Cloud (Speech, TTS, Translate), Render, Git, GitLab</div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-label">Tools</div>
-          <div class="skill-tags">Postman, Swagger, Playwright, LINE LIFF</div>
-        </div>
+      <div class="contact-line">
+        <a href="https://github.com/PeerapongMala">github.com/PeerapongMala</a> &nbsp;|&nbsp;
+        <a href="https://portfolio-peerapong.vercel.app">portfolio-peerapong.vercel.app</a>
       </div>
+    </div>
+    <img class="header-photo" src="./profile.jpg" alt="Peerapong Mala">
+  </div>
 
-      <!-- Education -->
-      <div class="sidebar-section">
-        <div class="sidebar-title">Education</div>
-        <div class="edu-item">
-          <div class="edu-school-name">Chiang Mai University</div>
-          <div class="edu-detail">B.Sc. Digital Industry Integration</div>
-          <div class="edu-detail">2023 &ndash; 2026</div>
-          <div class="edu-detail" style="margin-top:4px;">GPAX: 2.89 / 4.00</div>
-          <div class="edu-detail" style="margin-top:2px; font-size:10.5px;">Coursework: OOP, Data Structures, Web Tech, Database, Cloud, Math &amp; Computer Architecture</div>
-        </div>
-      </div>
-
-      <!-- Languages -->
-      <div class="sidebar-section">
-        <div class="sidebar-title">Languages</div>
-        <div class="lang-item">Thai (Native)</div>
-        <div class="lang-item">English (Intermediate)</div>
-      </div>
-
+  <!-- Professional Summary -->
+  <div class="section">
+    <div class="section-title">Professional Summary</div>
+    <div class="summary-text">
+      Motivated Digital Industry Integration student with 14-month internship experience, progressing from UX/UI design and QA to owning full-stack features in Go. Built production APIs, AI chatbot integrations (Gemini), and client-facing prototypes. Passionate about using technology to build practical, real-world applications. Seeking a full-time developer role.
     </div>
   </div>
 
-  <!-- RIGHT MAIN CONTENT -->
-  <div class="main">
+  <!-- Experience -->
+  <div class="section">
+    <div class="section-title">Experience</div>
 
-    <!-- Header -->
-    <div class="main-header">
-      <h1>Peerapong Mala</h1>
-      <div class="role">Full Stack Developer</div>
-      <div class="summary">
-        Full Stack Developer with 14-month internship at Zettamerge, progressing from UX/UI design and QA to owning full-stack features in Go. Built production APIs, AI chatbot integrations (Gemini), and client-facing prototypes. Debugged 3 browser-based games. Active personal project builder seeking a full-time role.
+    <div class="exp-block">
+      <div class="exp-header">
+        <span class="exp-company">Zettamerge, Chiang Mai (Internship)</span>
+        <span class="exp-date">Dec 2024 - Mar 2026</span>
       </div>
+      <div class="exp-role">Front-End / QA, then Full-Stack Developer (14 months, excl. summer break)</div>
+      <ul class="exp-bullets">
+        <li><strong>Dental Plus</strong> built interactive prototype for client UX/UI presentation, approved to proceed. End-to-end ownership: Figma, API specs, mock frontend, backend (Auth, Game phases), AI POC (Go + Chi, PostgreSQL + pgvector, Gemini AI with tool-calling)</li>
+        <li><strong>3D Games QA &amp; Debug</strong> took over bug fixes from senior team members, freeing them for other tasks. Debugged React logic in 3 browser games (Fruit Ninja, Last War, Survival IO): pause/resume, timer sync, projectile despawn, UI state fixes</li>
+        <li><strong>BSS (Banknote Sorting System)</strong> for Ditruz delivered 6 pages + 3 modals with backend APIs using AI-assisted development. 44/44 QA tests passed (100%)</li>
+        <li><strong>Chat Management POC</strong> self-initiated: researched references, built proposal slides, and presented to team. Approved to build POC, delivered working multi-channel inbox (LINE/FB/IG/TikTok) with Gemini 2.5 Flash AI</li>
+        <li><strong>Clever Platform QA</strong> reported 40-50 bugs from ~600 total via structured Excel tracking</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="edu-header">
+      <span class="edu-school">Chiang Mai University, College of Arts, Media and Technology</span>
+      <span class="edu-date">2023 - 2026</span>
+    </div>
+    <div class="edu-detail">Bachelor of Science in Digital Industry Integration</div>
+    <ul class="exp-bullets" style="margin-top:3px;">
+      <li>GPAX: 2.89 / 4.00</li>
+      <li>Relevant Coursework: Object-Oriented Programming, Data Structures &amp; Algorithms, Web Technology, Database Management, Cloud Deployment, Mathematics and Computer Architecture</li>
+    </ul>
+  </div>
+
+  <!-- Projects -->
+  <div class="section">
+    <div class="section-title">Projects</div>
+
+    <div class="proj-item">
+      <div class="proj-header">
+        <span class="proj-name">BubbleShop</span>
+        <span class="proj-tech">JavaScript, Firebase, Firestore, reCAPTCHA v3</span>
+      </div>
+      <ul class="proj-bullets">
+        <li>E-commerce for in-game items: real-time order board, multi-admin roles, stock tracking, coupons, commission tiers. 100+ commits.</li>
+      </ul>
     </div>
 
-    <!-- Experience -->
-    <div class="section">
-      <div class="section-title">Experience</div>
-
-      <div class="exp-company-header">
-        <span class="exp-company">Zettamerge &mdash; Chiang Mai (Internship)</span>
-        <span class="exp-date" style="margin-left:8px;">Dec 2024 &ndash; Mar 2026 (14 months, excl. summer break)</span>
+    <div class="proj-item">
+      <div class="proj-header">
+        <span class="proj-name">FearFree Animals</span>
+        <span class="proj-tech">Go, React, TypeScript, Playwright</span>
       </div>
-
-      <!-- Phase 1: Dec 2024-Mar 2025 -->
-      <div class="exp-phase">
-        <div class="exp-left">
-          <div class="exp-date">Dec 2024 &ndash; Mar 2025</div>
-          <div class="exp-role">Front-End / QA</div>
-        </div>
-        <div class="exp-right">
-          <ul class="exp-bullets">
-            <li><strong>CSS Fixes</strong> &mdash; TSR Newspaper layout, Insurance header/dropdown components</li>
-            <li><strong>Clever Platform QA</strong> &mdash; reported 40&ndash;50 bugs from ~600 total via structured Excel tracking</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Phase 2: Jun 2025 - Mar 2026 -->
-      <div class="exp-phase">
-        <div class="exp-left">
-          <div class="exp-date">Jun 2025 &ndash; Mar 2026</div>
-          <div class="exp-role">Full-Stack Developer</div>
-        </div>
-        <div class="exp-right">
-          <ul class="exp-bullets">
-            <li><strong>Dental Plus</strong> &mdash; built interactive prototype for client UX/UI presentation, approved to proceed. End-to-end ownership: Figma, API specs, mock frontend, backend (Auth, Game phases), AI POC (Go + Chi, PostgreSQL + pgvector, Gemini AI with tool-calling)</li>
-            <li><strong>3D Games QA &amp; Debug</strong> &mdash; took over bug fixes from senior team members, freeing them for other tasks. Debugged React logic in 3 browser games (Fruit Ninja, Last War, Survival IO): pause/resume, timer sync, projectile despawn, UI state fixes</li>
-            <li><strong>BSS (Banknote Sorting System)</strong> for Ditruz &mdash; delivered 6 pages + 3 modals with backend APIs using AI-assisted development. 44/44 QA tests passed (100%)</li>
-            <li><strong>Chat Management POC</strong> &mdash; self-initiated: researched references, built proposal slides, and presented to team. Approved to build POC, delivered working multi-channel inbox (LINE/FB/IG/TikTok) with Gemini 2.5 Flash AI</li>
-          </ul>
-        </div>
-      </div>
+      <ul class="proj-bullets">
+        <li>Full-stack: Go backend (auth, game logic, rewards, assessment) + React frontend. Deployed on Render.</li>
+      </ul>
     </div>
 
-    <!-- Personal Projects -->
-    <div class="section">
-      <div class="section-title">Personal Projects</div>
-
-      <div class="proj-item">
-        <div class="proj-header">
-          <span class="proj-name">BubbleShop</span>
-          <span class="proj-tech">JavaScript &bull; Firebase &bull; Firestore &bull; reCAPTCHA v3</span>
-        </div>
-        <div class="proj-desc">E-commerce for in-game items: real-time order board, multi-admin roles, stock tracking, coupons, commission tiers. 100+ commits. <em>Self-coded Mar 2026; AI-assisted Apr 2026.</em></div>
+    <div class="proj-item">
+      <div class="proj-header">
+        <span class="proj-name">TrustMate</span>
+        <span class="proj-tech">NestJS, Prisma, React, Google OAuth</span>
       </div>
-
-      <div class="proj-item">
-        <div class="proj-header">
-          <span class="proj-name">FearFree Animals</span>
-          <span class="proj-tech">Go &bull; React &bull; TypeScript &bull; Playwright</span>
-        </div>
-        <div class="proj-desc">Full-stack: Go backend (auth, game logic, rewards, assessment) + React FE. Deployed on Render. <em>Self-coded; E2E AI-assisted.</em></div>
-      </div>
-
-      <div class="proj-item">
-        <div class="proj-header">
-          <span class="proj-name">TrustMate</span>
-          <span class="proj-tech">NestJS &bull; Prisma &bull; React &bull; Google OAuth</span>
-        </div>
-        <div class="proj-desc">Mental health platform: AI chatbot, mood tracking, therapist booking, crisis detection. 131 unit + 18 integration tests (80% coverage). <em>AI-assisted Apr 2026.</em></div>
-      </div>
-
-      <div class="proj-item">
-        <div class="proj-header">
-          <span class="proj-name">JORY Quiz Web</span>
-          <span class="proj-tech">Next.js &bull; TypeScript &bull; Web Share API</span>
-        </div>
-        <div class="proj-desc">Quiz app with result image generation and Instagram story sharing. Self-coded Mar 2026.</div>
-      </div>
-
-      <div class="proj-item">
-        <div class="proj-header">
-          <span class="proj-name">AI Factory / CONNEXT Portal / Portfolio</span>
-          <span class="proj-tech">TypeScript &bull; GitHub Actions &bull; Nuxt 4 &bull; Vue 3 &bull; React &bull; Tailwind</span>
-        </div>
-        <div class="proj-desc">Auto content posting with CI/CD. Client portal (Nuxt 4). Personal portfolio (React). Feb&ndash;Apr 2026.</div>
-      </div>
+      <ul class="proj-bullets">
+        <li>Mental health platform: AI chatbot, mood tracking, therapist booking, crisis detection. 131 unit + 18 integration tests (80% coverage).</li>
+      </ul>
     </div>
 
-    <!-- Hackathons -->
-    <div class="section">
-      <div class="section-title">Achievements</div>
-
-      <div class="hack-item">
-        <div class="hack-name">ICP Spring Ideathon 2024 &mdash; 4th Place</div>
-        <div class="hack-desc">International Web3 blockchain hackathon by ICP Hubs Network &bull; Mar 2024</div>
+    <div class="proj-item">
+      <div class="proj-header">
+        <span class="proj-name">RootID</span>
+        <span class="proj-tech">React 19, Express, PostgreSQL, Docker</span>
       </div>
-
-      <div class="hack-item">
-        <div class="hack-name">K-CAMT Hackathon Winter Program 2023</div>
-        <div class="hack-desc">24-hour smart farming hackathon with Korean institutions &bull; Dec 2023</div>
-      </div>
+      <ul class="proj-bullets">
+        <li>Metadata-driven dynamic form builder (44 field types) with auto-generated tables, versioned records (diff history), and a PostgreSQL vs MongoDB performance benchmark. Delivered research project.</li>
+      </ul>
     </div>
 
+    <div class="proj-item">
+      <div class="proj-header">
+        <span class="proj-name">JORY Quiz Web</span>
+        <span class="proj-tech">Next.js, TypeScript, Web Share API</span>
+      </div>
+      <ul class="proj-bullets">
+        <li>Quiz app with result image generation and Instagram story sharing.</li>
+      </ul>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-header">
+        <span class="proj-name">AI Factory / CONNEXT Portal / Portfolio</span>
+        <span class="proj-tech">TypeScript, GitHub Actions, Nuxt 4, Vue 3, React, Tailwind</span>
+      </div>
+      <ul class="proj-bullets">
+        <li>Auto content posting with CI/CD. Client portal (Nuxt 4). Personal portfolio (React).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Skills -->
+  <div class="section">
+    <div class="section-title">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-row"><strong>Frontend:</strong> React, TypeScript, JavaScript, Vue 3, Nuxt 4, Next.js, Tailwind CSS, Vite</div>
+      <div class="skill-row"><strong>Database:</strong> PostgreSQL, pgvector, MySQL, Firebase/Firestore</div>
+      <div class="skill-row"><strong>Backend:</strong> Node.js (Express, NestJS), Go (Fiber, Chi), Spring Boot (Java), Prisma</div>
+      <div class="skill-row"><strong>Cloud &amp; DevOps:</strong> Docker, GitHub Actions, Google Cloud, Render, Git</div>
+      <div class="skill-row"><strong>AI:</strong> Google Gemini (tool-calling, prompt engineering), Claude, ChatGPT, Ollama, OpenClaw, Hermes, OpenRouter, Antigravity; AI agent workflows</div>
+      <div class="skill-row"><strong>Tools:</strong> Postman, Swagger, Playwright, LINE LIFF, Figma</div>
+    </div>
+  </div>
+
+  <!-- Hackathons -->
+  <div class="section">
+    <div class="section-title">Achievements</div>
+    <div class="hack-item"><span class="hack-name">ICP Spring Ideathon 2024, 4th Place</span> International Web3 blockchain hackathon by ICP Hubs Network, Mar 2024</div>
+    <div class="hack-item"><span class="hack-name">K-CAMT Hackathon Winter Program 2023</span> 24-hour smart farming hackathon with Korean institutions, Dec 2023</div>
+  </div>
+
+  <!-- Languages -->
+  <div class="section">
+    <div class="section-title">Languages</div>
+    <div style="font-size:12px; color:#2d2d2d;">Thai (Native) &nbsp;&bull;&nbsp; English (Intermediate)</div>
   </div>
 
 </div>
